@@ -5,7 +5,6 @@
 
           <!-- Nav section -->
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <!-- <a class="navbar-brand" href="">Tindog</a> -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,21 +18,7 @@
                         <a class="nav-link btn btn-dark" href="/addNewPost">Add Blog Post</a>
                         </li>
                 </ul>
-            </div>
-            <!-- <div class="collapse navbar-collapse" id="navbarScroll">
-              <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                      <a class="nav-link btn btn-outline-light mx-2" href="#footer">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link btn btn-outline-light mx-2" href="/addNewPost">Add Blog Post</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link btn btn-outline-light mx-2" href="#cta">Download</a>
-                  </li>
-              </ul>
-          </div> -->
-          
+            </div>          
         </nav>
         </div>
           
@@ -64,11 +49,12 @@
           <div class="row">
             <img class="col-lg-6 blog-image" src="<%= blogPost.imageURL %>" alt="Blog Image">
             <div class="col-lg-6 blog-contents">
+              <!-- <h2 class="blog-index"># <%= blogPost.index %></h2> -->
               <h2 class="blog-title"><%= blogPost.title %></h2>
               <p class="blog-type">Type: <strong><%= blogPost.type %></strong></p>
               <p class="blog-description"><%= blogPost.description %></p>
               <p class="time"><em><%= blogPost.time %></em></p>
-              <button type="button" class="btn btn-danger" onclick="confirmDelete('<%= blogPost.title %>')"><i class="fa-solid fa-trash" style="margin-right: 5px"></i>Delete</button>
+              <button type="button" class="btn btn-danger" onclick="confirmDelete('<%= blogPost.index %>')"><i class="fa-solid fa-trash" style="margin-right: 5px"></i>Delete</button>
             <button type="button" class="btn btn-success" onclick="confirmEdit('<%= blogPost.index %>')"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Edit</button>
             </div>
           </div>
@@ -78,28 +64,15 @@
       <% } %>
     </section>
       <script>
-        async function confirmDelete(title) {
-    const confirmation = confirm("Are you sure you want to delete the post? This action is irreversible.");
+  async function confirmDelete(index) {
+    const confirmation = confirm("Are you sure you want to edit the post?");
 
     if (confirmation) {
-      try {
-        const response = await fetch(`/delete/${encodeURIComponent(title)}`, { method: 'DELETE' });
-
-        if (response.ok) {
-          // Reload the page or update the UI as needed
-          window.location.href='/';
-        } else {
-          alert("Failed to delete the post!");
-        }
-      } catch (error) {
-        console.error("Error during delete request:", error);
-        alert("Failed to delete the post!");
-      }
+        window.location.href=`/delete/${encodeURIComponent(index)}`; //appended the index as a query parameter
     } else {
-      alert("Post not deleted!");
+        alert("Post not deleted!");
     }
-  }
-
+}
   async function confirmEdit(index) {
     const confirmation = confirm("Are you sure you want to edit the post?");
 
