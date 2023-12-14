@@ -47,19 +47,18 @@ function blogPost(imageURL, title, type, description, time, index) {
 
   var blog = new blogPost(imagelink, firstTitle, firstType, firstText, firstTime, firstIndex++);  
   blogArr.push(blog);
-  //2cd instance
-  var imagelink="/images/geminiAIpost.jpg";
-  var firstTitle="Google's next-gen AI model Gemini outperforms GPT-4";
-  var firstType="Advancement in AI";
-  var firstText=`Google has unveiled Gemini, a cutting-edge AI model that stands as the company's 
+  //2nd instance
+  imagelink="/images/geminiAIpost.jpg";
+  firstTitle="Google's next-gen AI model Gemini outperforms GPT-4";
+  firstType="Advancement in AI";
+  firstText=`Google has unveiled Gemini, a cutting-edge AI model that stands as the company's 
   most capable and versatile to date. Demis Hassabis, CEO and Co-Founder of Google DeepMind, 
   introduced Gemini as a multimodal model that is capable of seamlessly understanding and combining 
   various types of information, including text, code, audio, image, and video. Gemini comes in three 
   optimised versions: Ultra, Pro, and Nano. The Ultra model boasts state-of-the-art performance, 
   surpassing human experts in language understanding and demonstrating unprecedented capabilities 
   in tasks ranging from coding to multimodal benchmarks.`;
-   var firstTime=dateTime();
-   var firstIndex=1;
+  firstTime=dateTime();
 
   var blog = new blogPost(imagelink, firstTitle, firstType, firstText, firstTime, firstIndex++);  
   blogArr.push(blog);
@@ -68,16 +67,13 @@ function blogPost(imageURL, title, type, description, time, index) {
 app.get("/", (req,res) => { 
     res.render("index.ejs",{blogArr: blogArr});
 });
-
+//Adding new Post
 app.get("/addNewPost", (req,res) => {
     res.render("addPostForm.ejs");
 });
 
-//Adding new post
 app.post("/new", (req,res) => {
     const newBlog= new blogPost(req.body["imageURL"], req.body["title"], req.body["type"], req.body["description"], dateTime(), firstIndex++);
-    // var lastElement=blogArr[blogArr.length-1];
-    // if(lastElement.description!==newBlog.description)
     blogArr.push(newBlog);
     res.redirect("/");
     // res.render("index.ejs",{blogArr: blogArr});
@@ -90,20 +86,31 @@ app.get("/loadEditForm", (req,res) => {
 });
 
 app.post("/edit", (req,res) =>{
-    const newBlog= new blogPost(req.body["imageURL"], req.body["title"], req.body["type"], req.body["description"], dateTime(), firstIndex);
+    const newBlog= new blogPost(req.body["imageURL"], req.body["title"], req.body["type"], req.body["description"], dateTime(), indexToBeEdited);
     blogArr[indexToBeEdited-1]=newBlog;
     res.redirect("/");
 });
 
 // For deleting posts
-app.delete("/delete/:title", (req, res) => {
-    const blogTitle = req.params.title;
-    blogArr = blogArr.filter(item => item.title !== blogTitle);
+app.get("/delete/:index", (req, res) => {
+    var blogIndex = req.params.index*1;
+    blogIndex--;
+
+    // Remove the item at the adjusted index
+    blogArr.splice(blogIndex, 1);
+
+    // Update the indices for the remaining items
+    for (let i = blogIndex; i < blogArr.length; i++) {
+        blogArr[i].index = i + 1; // Convert back to 1-based indexing
+    }
+    firstIndex=blogArr.length+1;
+
+    res.redirect("/");
 
     // Send a success response
     res.sendStatus(200);
   });
-  // Add a new route for rendering the edit form
+
 app.get("/linkedin", (req,res) =>{
     res.redirect("https://www.linkedin.com/in/anunak-roy-a946b9230/");
 })
