@@ -33,6 +33,10 @@ body {
     margin: 10px;
     padding: 10%;
 }
+.blog-description, .blog-title, .blog-type{
+    padding-left: 5%;
+    padding-right: 5%;
+}
 .button-89 {
   --b: 3px;   /* border thickness */
   --s: .45em; /* size of the corner */
@@ -109,7 +113,7 @@ body {
 .edit-title, .add-title{
     font-family: 'Rethink Sans', sans-serif;
 }
-.btn {
+button {
     padding:10px;
     margin: 10px;
 }
