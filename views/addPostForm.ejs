@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs") %>
+<div class="container-fluid form">
+  <p id="moto"> Captivating Narratives, Infinite Perspectives</p>
+  <h1 class="add-title">Add Post</h1>
+<form action="/new" method="POST">
+    <label for="imageURL">Image Link:</label>
+    <input type="text" id="imageURL" name="imageURL" placeholder="Enter the image link">
+    
+    <label for="title">Title of the post:</label>
+    <input type="text" id="title" name="title" placeholder="Enter the title of the post">
+    
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="type" placeholder="Enter the type">
+    
+    <label for="description">Description of post:</label>
+    <input type="text" id="description" name="description" placeholder="Enter the description of the post">
+  
+    <input type="submit" value="Post!">
+  </form>
+</div>
+
+  
+<%- include("partials/footer.ejs") %>

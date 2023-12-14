@@ -1,0 +1,115 @@
+<%- include("partials/header.ejs") %>
+    <section id="top">
+        <div class="container-fluid">
+          <p id="moto"> Captivating Narratives, Infinite Perspectives</p>
+
+          <!-- Nav section -->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <!-- <a class="navbar-brand" href="">Tindog</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-dark" href="#contact">Contact</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-dark" href="/addNewPost">Add Blog Post</a>
+                        </li>
+                </ul>
+            </div>
+            <!-- <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light mx-2" href="#footer">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light mx-2" href="/addNewPost">Add Blog Post</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light mx-2" href="#cta">Download</a>
+                  </li>
+              </ul>
+          </div> -->
+          
+        </nav>
+        </div>
+          
+          <div class="row">
+            <div class="col-lg-6">
+              <h1 id="name" class="col-lg-6"> BlogSpot </h1>
+              <p class="intro-text">
+                "Hey there! Welcome to the cool corner of the internet – where ideas mingle, bits party,
+                 and pixels tell their tales. Buckle up for a wild ride through the digital universe of fun and facts. 
+                 Ready to surf the waves of awesome content? Let's dive in and make this online journey a blast together!"
+              </p>
+              <button type="button" class="button-89 btn-lg"><a href="#blogs"><i class="fa-solid fa-memo"></i> Take me to the blogs!</a></button>
+            </div>
+            <div class="col-lg-6" style="text-align:center">
+              <img class="main-image" src="/images/ReadingBooks.jpg" alt="Reading books">
+            </div>
+          </div>
+
+          <button type="button" class="btn-lg button-89"><a href="/addNewPost" class="button">Add Blog Post</a></button>
+          <button type="button" class="btn-lg button-89"><a href="/" class="button">Home</a></button>
+        </div>
+    </section>
+
+    <section id="blogs">
+      <% for (const blogPost of blogArr) { %>
+        <div class="blog-post">
+            
+          <div class="row">
+            <img class="col-lg-6 blog-image" src="<%= blogPost.imageURL %>" alt="Blog Image">
+            <div class="col-lg-6 blog-contents">
+              <h2 class="blog-title"><%= blogPost.title %></h2>
+              <p class="blog-type">Type: <strong><%= blogPost.type %></strong></p>
+              <p class="blog-description"><%= blogPost.description %></p>
+              <p class="time"><em><%= blogPost.time %></em></p>
+              <button type="button" class="btn btn-danger" onclick="confirmDelete('<%= blogPost.title %>')"><i class="fa-solid fa-trash" style="margin-right: 5px"></i>Delete</button>
+            <button type="button" class="btn btn-success" onclick="confirmEdit('<%= blogPost.index %>')"><i class="fa-solid fa-pen-to-square" style="margin-right: 5px"></i>Edit</button>
+            </div>
+          </div>
+          
+          <hr>
+        </div>
+      <% } %>
+    </section>
+      <script>
+        async function confirmDelete(title) {
+    const confirmation = confirm("Are you sure you want to delete the post? This action is irreversible.");
+
+    if (confirmation) {
+      try {
+        const response = await fetch(`/delete/${encodeURIComponent(title)}`, { method: 'DELETE' });
+
+        if (response.ok) {
+          // Reload the page or update the UI as needed
+          window.location.href='/';
+        } else {
+          alert("Failed to delete the post!");
+        }
+      } catch (error) {
+        console.error("Error during delete request:", error);
+        alert("Failed to delete the post!");
+      }
+    } else {
+      alert("Post not deleted!");
+    }
+  }
+
+  async function confirmEdit(index) {
+    const confirmation = confirm("Are you sure you want to edit the post?");
+
+    if (confirmation) {
+        window.location.href=`/loadEditForm?index=${encodeURIComponent(index)}`; //appended the index as a query parameter
+    } else {
+        alert("Post not edited!");
+    }
+}
+
+      </script>
+    
+<%- include("partials/footer.ejs") %>

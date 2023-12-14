@@ -1,0 +1,185 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    text-align: center;
+}
+.container-fluid{
+    padding-bottom: 3%;
+}
+#moto{
+    background-color: black;
+    color: white;
+    padding: 2px;
+}
+/* Navbar */
+  
+
+  
+#top{
+    background-color: #F0DBAF;
+    color: black;
+    font-family: 'Rethink Sans', sans-serif;
+}
+#name{
+    margin: 10px;
+    padding: 40px;
+    font-weight: bold;
+    margin: auto;
+    text-shadow: 2px 7px 5px rgba(0,0,0,0.3), 
+    0px -4px 10px rgba(255,255,255,0.3);
+}
+.intro-text{
+    margin: 10px;
+    padding: 10%;
+}
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}
+.main-image{
+    height: 30rem;
+    margin: 10px auto 10px auto;
+    -webkit-box-shadow:21px 16px 44px 20px rgba(62,66,66,0.64);
+    -moz-box-shadow: 21px 16px 44px 20px rgba(62,66,66,0.64);
+    box-shadow: 21px 16px 44px 20px rgba(62,66,66,0.64);
+}
+/* .blog-contents{
+    display: flex;
+    align-items: center;
+} */
+#blogs{
+    background-color: #B06161;
+    color:#fff;
+}
+.blog-post:hover {
+    background-color: #F0DBAF; /* Change to desired background color on hover */
+    color: black; /* Change to desired text color on hover */
+}
+.blog-post:hover .blog-image {
+    /* Styles for h2 with class 'blog-title' during hover */
+    -webkit-box-shadow:-4px 16px 44px 20px rgba(62,66,66,0.64);
+    -moz-box-shadow: -4px 16px 44px 20px rgba(62,66,66,0.64);
+    box-shadow: -4px 16px 44px 20px rgba(62,66,66,0.64);
+}
+.blog-image{
+    height: 90%;
+    margin: auto;
+    /* padding: 10px; */
+}
+.blog-title{
+    margin: 10px;
+    padding: 10px;
+    font-family: 'Playfair Display', serif;
+}
+.blog-description{
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+}
+.edit-title, .add-title{
+    font-family: 'Rethink Sans', sans-serif;
+}
+.btn {
+    padding:10px;
+    margin: 10px;
+}
+/* form{
+    background-color: beige;
+} */
+
+/* FOR FORM */
+
+.container-fluid.form{
+    background-color: #F0DBAF;
+}
+/* Style for the form container */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Style for form labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Style for form inputs */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style for submit button */
+input[type="submit"] {
+    background-color: #B06161;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for submit button */
+input[type="submit"]:hover {
+    background-color: #8c4848;
+}
+footer{
+    background-color: #A9B388;
+}
+footer p{
+    font-family: 'Montserrat', sans-serif;
+    /* padding: 20px; */
+}
+
+/* Navbar */
+nav{
+    text-align: center;
+}
+.nav-item{
+    padding:0 18px; 
+    color:#333;
+}
+.nav-link{
+    font-size:1.2rem;
+    color:#333;
+    /* font-weight: lighter; */
+}
+
+
