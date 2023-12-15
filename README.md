@@ -22,4 +22,4 @@ https://blogspot.up.railway.app/
 <img src="https://github.com/AnunakRoy/BlogSpot/blob/main/public/screenshots/img3.jpg" />
 <img src="https://github.com/AnunakRoy/BlogSpot/blob/main/public/screenshots/img4.jpg" />
 <img src="https://github.com/AnunakRoy/BlogSpot/blob/main/public/screenshots/img5.jpg" />
-<img src="https://github.com/AnunakRoy/BlogSpot/blob/main/public/screenshots/img_mobile.jpg" />
+<img src="https://github.com/AnunakRoy/BlogSpot/blob/main/public/screenshots/img_mobile.png" />
