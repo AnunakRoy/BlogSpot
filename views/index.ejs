@@ -18,7 +18,21 @@
                         <a class="nav-link btn btn-dark" href="/addNewPost">Add Blog Post</a>
                         </li>
                 </ul>
-            </div>          
+            </div>
+            <!-- <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light mx-2" href="#footer">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light mx-2" href="/addNewPost">Add Blog Post</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link btn btn-outline-light mx-2" href="#cta">Download</a>
+                  </li>
+              </ul>
+          </div> -->
+          
         </nav>
         </div>
           
@@ -64,8 +78,30 @@
       <% } %>
     </section>
       <script>
+  //       async function confirmDelete(index) {
+  //   const confirmation = confirm("Are you sure you want to delete the post? This action is irreversible.");
+
+  //   if (confirmation) {
+  //     try {
+  //       const response = await fetch(`/delete/${encodeURIComponent(index)}`, { method: 'DELETE' });
+
+  //       if (response.ok) {
+  //         // Reload the page or update the UI as needed
+  //         window.location.href='/';
+  //       } else {
+  //         alert("Failed to delete the post!");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error during delete request:", error);
+  //       alert("Failed to delete the post! Error!");
+  //     }
+  //   } else {
+  //     alert("Post not deleted!");
+  //   }
+  // }
+
   async function confirmDelete(index) {
-    const confirmation = confirm("Are you sure you want to edit the post?");
+    const confirmation = confirm("Are you sure you want to delete the post? This action is irreversible.");
 
     if (confirmation) {
         window.location.href=`/delete/${encodeURIComponent(index)}`; //appended the index as a query parameter
