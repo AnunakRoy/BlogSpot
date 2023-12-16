@@ -13,6 +13,10 @@ https://blogspot.up.railway.app/
 
 ## Demo
 
+
+https://github.com/AnunakRoy/BlogSpot/assets/115368867/c0fa5f46-fe65-4adf-8c27-c41d554efaba
+
+
 <img href="blob:https://iitkgpacin-my.sharepoint.com/ce655574-ea99-4bd9-814e-cd879667138b" />
 
 ## Screenshots
