@@ -14,10 +14,14 @@ https://blogspot.up.railway.app/
 ## Demo
 
 
-https://github.com/AnunakRoy/BlogSpot/assets/115368867/c0fa5f46-fe65-4adf-8c27-c41d554efaba
 
+https://github.com/AnunakRoy/BlogSpot/assets/115368867/8e34a152-1713-4dca-bbdc-0d0e026ca822
 
-<img href="blob:https://iitkgpacin-my.sharepoint.com/ce655574-ea99-4bd9-814e-cd879667138b" />
+<video width="640" height="360" controls>
+        <source src="https://github.com/AnunakRoy/BlogSpot/blob/main/public/screenshots/Demo_video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+</video>
+
 
 ## Screenshots
 
